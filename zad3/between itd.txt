@@ -1,0 +1,14 @@
+zad1
+SELECT * from products WHERE price BETWEEN 10 AND 20;
+zad2
+SELECT * from products WHERE price NOT BETWEEN 10 AND 20;
+zad3
+SELECT * from products WHERE category_id IN (1,2,3);
+zad4
+SELECT * from orders WHERE shipper_id IN(1,2,3);
+zad5
+SELECT * from products WHERE price BETWEEN 10 AND 15 AND supplier_id NOT IN(1,2,3,4);
+zad6
+SELECT * from orders WHERE time(order_date) BETWEEN 1996-07-01 AND 1996-07-31;
+zad7
+SELECT * from orders WHERE customer_id IN(SELECT customer_id FROM orders WHERE customer_id BETWEEN 77 AND 90);

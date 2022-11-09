@@ -1,0 +1,16 @@
+zad1
+SELECT * from customers WHERE country="germany";
+zad2
+SELECT * from customers WHERE city="berlin";
+zad3
+SELECT * from customers WHERE city="berlin" AND country="germany";
+zad4
+SELECT * from customers WHERE city="berlin" OR "munchen" AND country="germany";
+zad5
+SELECT * from customers WHERE country NOT LIKE "germany" OR "USA";
+zad6
+SELECT * from customers ORDER by country ASC;
+zad7
+SELECT * from customers ORDER by country DESC;
+zad8
+SELECT * from customers ORDER by country DESC, Customer_name ASC;

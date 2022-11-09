@@ -1,0 +1,17 @@
+min,max itd
+zad 1
+SELECT MIN(price) from products;
+zad2
+SELECT MAX(price) from products;
+zad3
+SELECT COUNT(unit) from products;
+zad4
+SELECT COUNT(customer_name) from customers;
+zad5
+SELECT COUNT(customer_name),country from customers GROUP BY country;
+zad6
+SELECT COUNT(name),AVG(price) FROM products WHERE category_id="1";
+zad7
+SELECT SUM(price) FROM products WHERE category_id="2";
+zad8
+SELECT MAX(price) FROM products WHERE category_id="1" OR category_id="2";

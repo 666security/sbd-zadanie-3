@@ -1,0 +1,5 @@
+zad1
+SELECT * FROM customers JOIN orders ON orders.customer_id=customers.id
+zad2
+SELECT * FROM customers JOIN orders ON order_details.id=customers.id
+

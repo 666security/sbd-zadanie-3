@@ -76,3 +76,28 @@ SELECT id, name, contact_name, address, city, post_code, country, phone FROM sup
 
 ANY ALL
 zad1
+SELECT p.name FROM products AS p JOIN orders_details AS o ON p.id = o.product_id WHERE o.id = ANY(SELECT o.id FROM orders_details AS o WHERE o.quantity = 10);
+zad2
+SELECT p.name FROM products AS p JOIN orders_details AS o ON p.id = o.product_id WHERE o.id = ANY(SELECT o.id FROM orders_details as o WHERE o.quantity > 99);
+zad3
+SELECT * FROM products AS p WHERE p.id = ALL(SELECT p.id FROM products AS p WHERE p.name);
+zad4
+SELECT p.name FROM products AS p JOIN orders_details AS o ON p.id = o.product_id WHERE o.id = ALL(SELECT o.id FROM orders_details AS o WHERE o.quantity = 10);
+
+CASE
+zad1
+SELECT o.id, o.quantity, CASE WHEN o.quantity > 30 THEN 'sztuk jest wiecej niz 30' WHEN o.quantity < 30 THEN 'sztuk jest mniej niz 30' ELSE 'jest rowna 30' END AS ilosc FROM orders_details AS o;
+zad2
+SELECT c.customer_name, c.city, c.country FROM customers AS c ORDER BY CASE WHEN c.city = NULL THEN c.country ELSE c.city END;
+
+ALL
+zad1
+SELECT p.id, p.name, SUM(o.quantity) AS suma FROM products AS p JOIN orders_details AS o ON o.product_id = p.id GROUP BY p.id ORDER BY suma DESC LIMIT 10;
+zad2
+SELECT c.id, c.customer_name, COUNT(d.quantity) AS liczbaZamowien, SUM(d.quantity) AS sumaZamowionychRzeczy FROM customers AS c JOIN orders AS o ON o.customer_id = c.id JOIN orders_details AS d ON o.id = d.order_id GROUP BY c.id ORDER BY sumaZamowionychRzeczy DESC LIMIT 10;
+zad3
+SELECT c.id, c.category_name, SUM(d.quantity) AS ilosc FROM categories AS c JOIN products AS p ON p.category_id = c.id JOIN orders_details AS d ON d.product_id = p.id GROUP BY c.id ORDER BY ilosc DESC LIMIT 1;
+zad4
+SELECT c.id, c.category_name, SUM(d.quantity) AS ilosc FROM categories AS c JOIN products AS p ON p.category_id = c.id JOIN orders_details AS d ON d.product_id = p.id GROUP BY c.id;
+
+

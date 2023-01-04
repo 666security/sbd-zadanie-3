@@ -1,0 +1,68 @@
+WHERE AND OR ORDER BY
+zad1
+SELECT * from customers WHERE country="germany";
+zad2
+SELECT * from customers WHERE city="berlin";
+zad3
+SELECT * from customers WHERE city="berlin" AND country="germany";
+zad4
+SELECT * from customers WHERE city="berlin" OR "munchen" AND country="germany";
+zad5
+SELECT * from customers WHERE country NOT LIKE "germany" OR "USA";
+zad6
+SELECT * from customers ORDER by country ASC;
+zad7
+SELECT * from customers ORDER by country DESC;
+zad8
+SELECT * from customers ORDER by country DESC, Customer_name ASC;
+
+MIN MAX COUNT AVG SUM GROUP BY
+zad 1
+SELECT MIN(price) from products;
+zad2
+SELECT MAX(price) from products;
+zad3
+SELECT COUNT(unit) from products;
+zad4
+SELECT COUNT(customer_name) from customers;
+zad5
+SELECT COUNT(customer_name),country from customers GROUP BY country;
+zad6
+SELECT COUNT(name),AVG(price) FROM products WHERE category_id="1";
+zad7
+SELECT SUM(price) FROM products WHERE category_id="2";
+zad8
+SELECT MAX(price) FROM products WHERE category_id="1" OR category_id="2";
+
+BETWEEN NOT BETWEEN IN NOT IN SUBQUERY
+zad1
+SELECT * from products WHERE price BETWEEN 10 AND 20;
+zad2
+SELECT * from products WHERE price NOT BETWEEN 10 AND 20;
+zad3
+SELECT * from products WHERE category_id IN (1,2,3);
+zad4
+SELECT * from orders WHERE shipper_id IN(1,2,3);
+zad5
+SELECT * from products WHERE price BETWEEN 10 AND 15 AND supplier_id NOT IN(1,2,3,4);
+zad6
+SELECT * from orders WHERE time(order_date) BETWEEN 1996-07-01 AND 1996-07-31;
+zad7
+SELECT * from orders WHERE customer_id IN(SELECT customer_id FROM orders WHERE customer_id BETWEEN 77 AND 90);
+
+JOIN INNER JOIN LEFTJOIN RIGHTJOIN SELF JOIN
+zad1
+SELECT * FROM customers JOIN orders ON orders.customer_id=customers.id
+zad2
+SELECT * FROM customers JOIN orders ON order_details.id=customers.id
+
+LIMIT OFFSET
+zad1
+SELECT * FROM orders LIMIT 10 OFFSET 186
+zad2
+SELECT * FROM orders LIMIT 10 OFFSET 10
+
+HAVING EXISTS
+zad1
+SELECT COUNT(id), country FROM customers GROUP BY country HAVING COUNT(id) > 5;
+zad2
